@@ -17,13 +17,17 @@ function App() {
     const [opened, dispatchOpened] = useReducer(windowSettingsReducer, true)
 
     useEffect(() => {
-        const minLS = localStorage.getItem('minValue')
-        const maxLS = localStorage.getItem('maxValue')
+        const minLS = localStorage.getItem('counter 2 - min value')
+        const maxLS = localStorage.getItem('counter 2 - max value')
         let min, max
-        if (minLS) {min = JSON.parse(minLS)}
-        if (maxLS) {max = JSON.parse(maxLS)}
-        dispatchMinValue(minInputLocStorAC(min))
-        dispatchMaxValue(maxInputLocStorAC(max))
+        if (minLS) {
+            min = JSON.parse(minLS)
+            dispatchMinValue(minInputLocStorAC(min))
+        }
+        if (maxLS) {
+            max = JSON.parse(maxLS)
+            dispatchMaxValue(maxInputLocStorAC(max))
+        }
     }, [])
 
     function changeMinInput(value: number) {
@@ -39,8 +43,8 @@ function App() {
     function setStartValue() {
         dispatchCount(resCounterAC(minValue))
         dispatchOpened(closeSettingsWindowAC())
-        localStorage.setItem('minValue', JSON.stringify(minValue))
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem('counter 2 - min value', JSON.stringify(minValue))
+        localStorage.setItem('counter 2 - max value', JSON.stringify(maxValue))
     }
    
     function addCount() {
@@ -57,7 +61,7 @@ function App() {
 
     return (
         <div className="App">
-            {opened &&
+            {opened ?
                 <SettingsCounter
                     minValue={minValue}
                     maxValue={maxValue}
@@ -67,8 +71,7 @@ function App() {
                     changeMaxInput={changeMaxInput}
                     setStartValue={setStartValue}
                 />
-            }
-            {!opened &&
+            :
                 <Counter
                     minValue={minValue}
                     maxValue={maxValue}
