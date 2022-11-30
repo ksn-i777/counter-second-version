@@ -3,7 +3,7 @@ import './App.css';
 import { SettingsCounter } from './components/SettingsCounter/SettingsCounter';
 import { Counter } from './components/Counter/Counter';
 
-function App() {
+export function App() {
 
     const [minValue, setMinValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(5)
@@ -74,5 +74,3 @@ function App() {
         </div>
     );
 }
-
-export default App

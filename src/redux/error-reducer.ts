@@ -15,7 +15,7 @@ export type ErrorMaxInputActionType = {
 }
 export type InputsErrorActionsType = ErrorMinInputActionType | ErrorMaxInputActionType
 
-export function errorReducer(state:boolean, action:InputsErrorActionsType):boolean {
+export function errorReducer(state:boolean = false, action:InputsErrorActionsType):boolean {
     switch (action.type) {
         case ERROR_OR_NOT_MIN:
             return action.value < 0 || action.value >= action.maxValue

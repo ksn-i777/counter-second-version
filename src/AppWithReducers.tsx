@@ -8,7 +8,7 @@ import { counterReducer, resCounterAC, incCounterAC } from './redux/counter-redu
 import { errorReducer, errorMinInputAC, errorMaxInputAC } from './redux/error-reducer'
 import { windowSettingsReducer, closeSettingsWindowAC, openSettingsWindowAC } from './redux/windowSettings-reducer'
 
-function App() {
+export function AppWithReducers() {
 
     const [minValue, dispatchMinValue] = useReducer(minInputReducer, 0)
     const [maxValue, dispatchMaxValue] = useReducer(maxInputReducer, 5)
@@ -84,5 +84,3 @@ function App() {
         </div>
     );
 }
-
-export default App

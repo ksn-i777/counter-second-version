@@ -9,7 +9,7 @@ export type CloseSettingsWindowActionType = {
 }
 export type SettingsWindowActionsType = OpenSettingsWindowActionType | CloseSettingsWindowActionType
 
-export function windowSettingsReducer(state:boolean, action:SettingsWindowActionsType):boolean {
+export function windowSettingsReducer(state:boolean = true, action:SettingsWindowActionsType):boolean {
     switch (action.type) {
         case OPEN:
             return true
