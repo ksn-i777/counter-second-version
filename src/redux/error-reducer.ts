@@ -20,7 +20,7 @@ export function errorReducer(state:boolean = false, action:InputsErrorActionsTyp
         case ERROR_OR_NOT_MIN:
             return action.value < 0 || action.value >= action.maxValue
         case ERROR_OR_NOT_MAX:
-            return action.value < 0 || action.value <= action.minValue
+            return action.value < 0 || action.value <= action.minValue || action.minValue < 0
         default:
             return state
     }
